@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expo Carreras FACEN – Hub del Estudiante</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  
+  <style>
+    .icon-inline {
+      vertical-align: middle;
+      font-size: 1.2em;
+      margin-right: 4px;
+      margin-bottom: 2px;
+    }
+    .icon-right {
+      margin-right: 0;
+      margin-left: 6px;
+    }
+    .icon-check {
+      vertical-align: middle;
+      color: #7c3aed; /* Color morado */
+      margin-right: 8px;
+      font-size: 1.3rem;
+    }
+    .icon-large {
+      font-size: 2.8rem;
+      color: #7c3aed;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero" id="inicio">
+    <div class="hero__blobs">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+    </div>
+    <div class="hero__inner container">
+      <div class="hero__meta">
+        <span class="chip">Expo Carreras 2026 · FACEN UNCa</span>
+      </div>
+      <h1 class="hero__title">
+        Elegí Ciencias.<br />
+        <em>Diseñá tu futuro</em><br />
+        en la FACEN.
+      </h1>
+      <p class="hero__sub">
+        Todo lo que necesitás para elegir carrera, inscribirte y arrancar. En un solo lugar.
+      </p>
+      <div class="hero__chips">
+        <span class="chip"><span class="material-symbols-outlined icon-inline">library_books</span> +20 carreras</span>
+        <span class="chip"><span class="material-symbols-outlined icon-inline">school</span> 100% gratuita</span>
+        <span class="chip"><span class="material-symbols-outlined icon-inline">work</span> Alta empleabilidad</span>
+        <span class="chip"><span class="material-symbols-outlined icon-inline">location_on</span> Catamarca</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="logo-ticker">
+    <div class="logo-ticker__track">
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+      
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+      <img src="/img/facen.png" alt="FACEN" class="ticker-logo" />
+      <img src="/img/img.png" alt="Franja Morada" class="ticker-logo" style="border-radius: 50%;" />
+    </div>
+  </div>
+
+  <main class="hub container" id="hub">
+
+    <p class="hub__intro">Todo lo que necesitás está acá abajo. Hacé clic en cada sección para ver el contenido.</p>
+
+    <div class="hub-section reveal" id="carreras">
+      <button class="hub-section__trigger" aria-expanded="false" aria-controls="panel-carreras">
+        <div class="hub-section__left">
+          <span class="hub-section__num">01</span>
+          <div>
+            <span class="hub-section__title">Descubrí tu Carrera</span>
+            <span class="hub-section__hint">+20 carreras de grado, pregrado y ciclos</span>
+          </div>
+        </div>
+        <span class="hub-section__arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="hub-section__panel" id="panel-carreras" hidden>
+        <div class="cards-grid">
+
+          <article class="card card--data">
+            <div class="card__header">
+              <span class="material-symbols-outlined card-icon-custom">school</span>
+              <span class="card__badge">Carreras de Grado</span>
+            </div>
+            <h3 class="card__title">Licenciaturas</h3>
+            <ul class="career-list">
+              <li>Lic. en Ciencias Ambientales</li>
+              <li>Lic. en Ciencias Biológicas</li>
+              <li>Lic. en Ciencias de Datos <span class="badge-new">NUEVA</span></li>
+              <li>Lic. en Ciberseguridad <span class="badge-new">NUEVA</span></li>
+              <li>Lic. en Energías Renovables <span class="badge-new">NUEVA</span></li>
+              <li>Lic. en Física</li>
+              <li>Lic. en Matemática</li>
+              <li>Lic. en Química</li>
+            </ul>
+          </article>
+
+          <article class="card card--info">
+            <div class="card__header">
+              <span class="material-symbols-outlined card-icon-custom">laptop_mac</span>
+              <span class="card__badge">Pregrado / Cortas</span>
+            </div>
+            <h3 class="card__title">Tecnicaturas</h3>
+            <ul class="career-list">
+              <li>Tec. en Ciencias Ambientales</li>
+              <li>Tec. en Ciencias de Datos <span class="badge-new">NUEVA</span></li>
+              <li>Tec. en Ciberseguridad <span class="badge-new">NUEVA</span></li>
+              <li>Tec. en Informática - Diseño Web</li>
+              <li>Tec. en Informática - Mantenimiento</li>
+              <li>Tec. en Informática - Redes</li>
+              <li>Tec. en Energías Renovables</li>
+              <li>Tecnicatura Química Universitaria</li>
+              <li>Tec. Univ. en Enología <span class="badge-new">NUEVA</span></li>
+            </ul>
+          </article>
+
+          <article class="card card--math">
+            <div class="card__header">
+              <span class="material-symbols-outlined card-icon-custom">co_present</span>
+              <span class="card__badge">Docencia</span>
+            </div>
+            <h3 class="card__title">Profesorados</h3>
+            <ul class="career-list">
+              <li>Profesorado en Biología</li>
+              <li>Profesorado en Física</li>
+              <li>Profesorado en Matemática</li>
+              <li>Profesorado en Química</li>
+            </ul>
+          </article>
+
+          <article class="card card--data">
+            <div class="card__header">
+              <span class="material-symbols-outlined card-icon-custom">sync</span>
+              <span class="card__badge">Complementación</span>
+            </div>
+            <h3 class="card__title">Ciclos</h3>
+            <ul class="career-list">
+              <li>Ciclo Prof. en Computación</li>
+              <li>Ciclo Lic. Enseñanza Ciencias Exp.</li>
+              <li>Ciclo Lic. Enseñanza de Matemática</li>
+              <li>Ciclo Lic. Enseñanza de Computación</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-section reveal" id="kit">
+      <button class="hub-section__trigger" aria-expanded="false" aria-controls="panel-kit">
+        <div class="hub-section__left">
+          <span class="hub-section__num">02</span>
+          <div>
+            <span class="hub-section__title">Guía de Ingreso <span class="material-symbols-outlined icon-inline icon-right">assignment_turned_in</span></span>
+            <span class="hub-section__hint">Trámites, becas y todo para arrancar sin perderte nada</span>
+          </div>
+        </div>
+        <span class="hub-section__arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="hub-section__panel" id="panel-kit" hidden>
+        <div class="kit-grid">
+          <article class="kit-card">
+            <div class="kit-card__icon"><span class="material-symbols-outlined icon-large">workspace_premium</span></div>
+            <h3>Becas y Beneficios</h3>
+            <p>La UNCa te acompaña para que puedas estudiar. Mirá los beneficios clave:</p>
+            <ul class="kit-list">
+              <li>
+                <span class="material-symbols-outlined">restaurant</span>
+                <div>
+                  <strong>Beca de Comedor</strong>
+                  <small>Almuerzo y cena gratuitos</small>
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">home</span>
+                <div>
+                  <strong>Beca de Residencia</strong>
+                  <small>Alojamiento para estudiantes del interior</small>
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">account_balance</span>
+                <div>
+                  <strong>Becas PROGRESAR</strong>
+                  <small>Ayuda económica para iniciar tus estudios</small>
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">rocket_launch</span>
+                <div>
+                  <strong>Becas Manuel Belgrano</strong>
+                  <small>Apoyo estratégico para Ciencias y Tecnología</small>
+                </div>
+              </li>
+            </ul>
+            <a href="https://exactas.unca.edu.ar/acad_becas.php" target="_blank" rel="noopener noreferrer" class="btn btn--purple">Ver Becas →</a>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__icon"><span class="material-symbols-outlined icon-large">edit_document</span></div>
+            <h3>Cómo inscribirse</h3>
+            <p>4 pasos y ya sos universitario:</p>
+            <ul class="kit-steps">
+              <li><span class="step-num">1</span><div><strong>Pre-inscripción Online</strong><small>SIU-Guaraní · noviembre/diciembre</small></div></li>
+              <li><span class="step-num">2</span><div><strong>Documentación</strong><small> Formulario de Pre-Inscripción · Foto 4x4, cuatro (4) · Certificado de Domicilio · Partida de Nacimiento Legalizada · Fotocopia del DNI · Fotocopia del Título Nivel Medio</small></div></li>
+              <li><span class="step-num">3</span><div><strong>Curso de Nivelación</strong><small>Febrero-Marzo · gratuito e intensivo</small></div></li>
+              <li><span class="step-num">4</span><div><strong>¡Arrancás!</strong><small>Marzo-Abril · primer día de clases <span class="material-symbols-outlined icon-inline icon-right" style="font-size: 1.1rem;">celebration</span></small></div></li>
+            </ul>
+            <a href="https://exactas.unca.edu.ar/acad_ingreso.php" target="_blank" rel="noopener noreferrer" class="btn btn--purple">Ver Guía Completa →</a>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-section reveal">
+      <button class="hub-section__trigger" aria-expanded="false" aria-controls="panel-recursos">
+        <div class="hub-section__left">
+          <span class="hub-section__num">03</span>
+          <div>
+            <span class="hub-section__title">Apuntes y Recursos <span class="material-symbols-outlined icon-inline icon-right">folder_open</span></span>
+            <span class="hub-section__hint">Material de estudio de primer año, gratis</span>
+          </div>
+        </div>
+        <span class="hub-section__arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="hub-section__panel" id="panel-recursos" hidden>
+        <div class="recursos-grid">
+          <a href="#" class="recurso-card">
+            <span class="material-symbols-outlined">calculate</span>
+            <div>
+              <strong>Matemática I</strong>
+              <small>Álgebra y cálculo diferencial</small>
+            </div>
+            <span class="recurso-card__arrow">→</span>
+          </a>
+          <a href="#" class="recurso-card">
+            <span class="material-symbols-outlined">terminal</span>
+            <div>
+              <strong>Introducción a la Programación</strong>
+              <small>Python desde cero</small>
+            </div>
+            <span class="recurso-card__arrow">→</span>
+          </a>
+          <a href="#" class="recurso-card">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <div>
+              <strong>Estadística Descriptiva</strong>
+              <small>Conceptos fundamentales</small>
+            </div>
+            <span class="recurso-card__arrow">→</span>
+          </a>
+          <a href="#" class="recurso-card">
+            <span class="material-symbols-outlined">folder_shared</span>
+            <div>
+              <strong>Drive Compartido</strong>
+              <small>Todos los materiales en un lugar</small>
+            </div>
+            <span class="recurso-card__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hub-section reveal" id="test-section">
+      <button class="hub-section__trigger" aria-expanded="false" aria-controls="panel-test">
+        <div class="hub-section__left">
+          <span class="hub-section__num">04</span>
+          <div>
+            <span class="hub-section__title">Test Vocacional <span class="material-symbols-outlined icon-inline icon-right">ads_click</span></span>
+            <span class="hub-section__hint">¿Todavía no sabés cuál es la tuya? Descubrilo en 5 min</span>
+          </div>
+        </div>
+        <span class="hub-section__arrow" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="hub-section__panel" id="panel-test" hidden>
+        <div class="test-block">
+          <div class="test-block__text">
+            <h3>¿Cuál es tu carrera ideal?</h3>
+            <p>Respondé 6 preguntas simples y te decimos cuál de las opciones encaja mejor con tu forma de pensar y tus intereses. Sin vueltas.</p>
+            <ul class="check-list">
+              <li><span class="material-symbols-outlined icon-check">check_circle</span> Tarda menos de 5 minutos</li>
+              <li><span class="material-symbols-outlined icon-check">check_circle</span> Resultado inmediato y gratis</li>
+            </ul>
+            <a href="https://testvocacional.app/" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Empezar Test Ahora →</a>
+          </div>
+          <div class="test-block__visual" aria-hidden="true">
+            <div class="test-card-mock">
+              <span class="mock-q">¿Cuándo tenés un problema difícil, preferís…?</span>
+              <div class="mock-opts">
+                <div class="mock-opt"><span class="material-symbols-outlined icon-inline">functions</span> Buscar un patrón matemático</div>
+                <div class="mock-opt mock-opt--sel"><span class="material-symbols-outlined icon-inline">code</span> Escribir código para automatizarlo</div>
+                <div class="mock-opt"><span class="material-symbols-outlined icon-inline">query_stats</span> Analizar datos para entenderlo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__fm">
+        <img src="/img/img.png" alt="Franja Morada" class="footer__fm-logo" />
+        <p>Con el apoyo de <strong>Franja Morada FACEN</strong></p>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <div class="container">
+        Desarrollado para el evento EXPO CARRERAS 2026
+      </div>
+    </div>
+</footer>
+
+  <div class="chatbot-wrapper" id="chatbot-wrapper">
+    <div class="chatbot-tooltip" id="chatbot-tooltip">
+      <span>¡Hola! <span class="material-symbols-outlined icon-inline">waving_hand</span> ¿Tenés dudas?</span>
+      <button class="tooltip-close" id="tooltip-close">✕</button>
+    </div>
+    <button class="chatbot-btn" id="chatbot-btn" aria-label="Abrir asistente">
+      <svg class="cb-icon cb-icon--chat" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="cb-icon cb-icon--x" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="chat-modal" id="chat-modal" aria-hidden="true">
+    <div class="chat-modal__box">
+      <div class="chat-modal__header">
+        <div class="chat-modal__avatar"><span class="material-symbols-outlined">smart_toy</span></div>
+        <div>
+          <div class="chat-modal__name">Asistente FACEN</div>
+          <div class="chat-modal__status"><span class="status-dot"></span>En línea</div>
+        </div>
+        <button class="chat-modal__close" id="chat-close">✕</button>
+      </div>
+      <div class="chat-modal__body" id="chat-body">
+        <div class="chat-msg chat-msg--bot">
+          <div class="chat-msg__bubble">¡Hola! <span class="material-symbols-outlined icon-inline">waving_hand</span> Soy el asistente de la FACEN. ¿En qué te puedo ayudar?</div>
+          <div class="chat-msg__time">Ahora</div>
+        </div>
+        <div class="chat-options" id="chat-options">
+          <button class="chat-opt" data-msg="¿Cuáles son las carreras?"><span class="material-symbols-outlined icon-inline">menu_book</span> ¿Qué carreras hay?</button>
+          <button class="chat-opt" data-msg="¿Cómo me inscribo?"><span class="material-symbols-outlined icon-inline">assignment</span> ¿Cómo me inscribo?</button>
+          <button class="chat-opt" data-msg="¿Hay becas?"><span class="material-symbols-outlined icon-inline">school</span> ¿Hay becas?</button>
+          <button class="chat-opt" data-msg="¿Cuándo arranca?"><span class="material-symbols-outlined icon-inline">calendar_month</span> ¿Cuándo arranca?</button>
+        </div>
+      </div>
+      <div class="chat-modal__footer">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Escribí tu pregunta…" autocomplete="off" />
+        <button class="chat-send" id="chat-send">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
