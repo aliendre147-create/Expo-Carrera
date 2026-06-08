@@ -758,3 +758,31 @@ body, * {
   padding-bottom: 1rem !important;
   margin-bottom: 0 !important;
 }
+/* =========================================
+   FOOTER IDÉNTICO EN CELULARES Y PC
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* Forzamos a que se mantengan en fila y centrados */
+  .footer__inner, 
+  .footer__fm {
+    display: flex !important;
+    flex-direction: row !important; /* Obliga a que estén uno al lado del otro */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important; /* Espacio un poco más chico entre logo y texto */
+  }
+
+  /* Evitamos que el texto baje de renglón y lo ajustamos a la pantalla */
+  .footer__fm p {
+    white-space: nowrap !important; 
+    font-size: 0.85rem !important; /* Letra apenas más chica para que entre entera */
+    margin: 0 !important;
+  }
+
+  /* Ajustamos un poco el logo para que acompañe el texto en móviles */
+  .footer__fm-logo {
+    width: 40px !important; 
+    height: auto !important;
+  }
+}
