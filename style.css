@@ -1,5 +1,5 @@
 /* =====================================================
-   FACEN EXPO CARRERAS – style.css  (Hub layout)
+   FACEN EXPO CARRERAS – style.css (Optimizado)
    ===================================================== */
 
 :root {
@@ -26,31 +26,36 @@
   --t: .25s cubic-bezier(.4,0,.2,1);
 }
 
+/* ── GLOBALS ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--ff-body); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; font-size: 110%; }
+body { 
+  font-family: var(--ff-body); background: var(--bg); color: var(--text); 
+  line-height: 1.6; overflow-x: hidden; font-size: 110%; 
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;
+}
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
-
 .container { width: min(1200px, 80%); margin-inline: auto; }
+
+/* ── ICONS MATERIAL ──────────────────────────────── */
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
 
 /* ── BUTTONS ─────────────────────────────────────── */
 .btn {
-  display: inline-flex; align-items: center; gap: .45rem;
+  display: inline-flex; align-items: center; gap: .45rem; justify-content: center;
   padding: .7rem 1.4rem; border-radius: 50px;
   font-family: var(--ff-head); font-weight: 700; font-size: .88rem;
   border: 2px solid transparent; cursor: pointer;
   transition: transform var(--t), box-shadow var(--t), background var(--t), color var(--t);
+  backface-visibility: hidden; transform: translateZ(0); perspective: 1000px;
 }
 .btn:hover { transform: translateY(-2px); }
-
 .btn--gold  { background: var(--gold); color: #1a0a00; border-color: var(--gold); box-shadow: 0 4px 18px rgba(249,168,38,.35); }
 .btn--gold:hover { background: var(--gold-d); box-shadow: 0 8px 28px rgba(249,168,38,.45); }
-
 .btn--outline { background: transparent; color: var(--green); border-color: var(--green); }
 .btn--outline:hover { background: var(--green); color: #fff; }
-
 .btn--purple { background: var(--purple); color: #fff; border-color: var(--purple); }
 .btn--purple:hover { background: #3a0e3b; box-shadow: 0 6px 20px rgba(74,21,75,.3); }
 
@@ -62,312 +67,144 @@ ul { list-style: none; }
 .pulse { animation: pulse-ring 2.2s ease infinite; }
 
 /* ── HEADER ──────────────────────────────────────── */
-
 .header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; padding-block: .8rem; gap: 1rem; }
 .header__logo { height: 38px; width: auto; object-fit: contain; }
 .header__nav { display: flex; gap: .6rem; align-items: center; }
-
-.nav-link {
-  font-family: var(--ff-head); font-weight: 600; font-size: .85rem;
-  padding: .4rem .9rem; border-radius: 50px;
-  border: 1.5px solid transparent; color: var(--text); transition: var(--t);
-}
+.nav-link { font-family: var(--ff-head); font-weight: 600; font-size: .85rem; padding: .4rem .9rem; border-radius: 50px; border: 1.5px solid transparent; color: var(--text); transition: var(--t); }
 .nav-link:hover { color: var(--green); }
 .nav-link--cta { border-color: var(--green); color: var(--green); }
 .nav-link--cta:hover { background: var(--green); color: #fff; }
 
 /* ── HERO ────────────────────────────────────────── */
-.hero {
-  position: relative; overflow: hidden;
-  background: linear-gradient(140deg, var(--green-d) 0%, var(--purple) 100%);
-  padding-block: 5.5rem 4rem;
-}
-
+.hero { position: relative; overflow: hidden; background: linear-gradient(140deg, var(--green-d) 0%, var(--purple) 100%); padding-block: 5.5rem 4rem; }
 .blob { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
 .b1 { width: 480px; height: 480px; background: rgba(0,153,102,.3); top: -160px; right: -80px; animation: fl 9s ease-in-out infinite; }
 .b2 { width: 360px; height: 360px; background: rgba(107,42,108,.4); bottom: -100px; left: -60px; animation: fl 11s ease-in-out infinite reverse; }
 .b3 { width: 280px; height: 280px; background: rgba(249,168,38,.12); top: 30%; left: 50%; animation: fl 13s ease-in-out infinite; }
 @keyframes fl { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-28px) scale(1.04)} }
 
-.hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.25rem; max-width: 1000px; }
+.hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.25rem; max-width: 1000px; align-items: center; text-align: center; margin: 0 auto; }
+.hero__meta { display: flex; align-items: center; gap: .75rem; transform: translateY(-20px); margin-bottom: 1.5rem; backface-visibility: hidden; }
+.hero__meta .chip { font-size: 1.1rem; padding: 0.6rem 1.4rem; font-weight: 700; letter-spacing: 0.05em; border-width: 2px; }
 
-.hero__meta { display: flex; align-items: center; gap: .75rem; }
-.hero__fm { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.3); }
-.hero__event {
-  font-family: var(--ff-head); font-size: .78rem; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(255,255,255,.75);
-}
-
-.hero__title {
-  font-family: var(--ff-head); font-weight: 800;
-  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-  line-height: 1.1; color: #fff;
-  animation: fadeUp .6s ease both;
-}
+.hero__title { font-family: var(--ff-head); font-weight: 800; font-size: clamp(2.2rem, 5.5vw, 3.8rem); line-height: 1.1; color: #fff; animation: fadeUp .6s ease both; backface-visibility: hidden; }
 .hero__title em { color: var(--gold); font-style: normal; }
-
-.hero__sub { color: rgba(255,255,255,.8); font-size: 1.05rem; max-width: 520px; animation: fadeUp .6s .1s ease both; }
+.hero__sub { color: rgba(255,255,255,.8); font-size: 1.05rem; max-width: 520px; animation: fadeUp .6s .1s ease both; backface-visibility: hidden; }
 
 .hero .btn { animation: fadeUp .6s .2s ease both; width: fit-content; }
-
-.hero__chips { display: flex; flex-wrap: wrap; gap: .5rem; animation: fadeUp .6s .3s ease both; }
-.chip {
-  background: rgba(255,255,255,.13); backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.9);
-  font-size: .78rem; font-weight: 500;
-  padding: .3rem .8rem; border-radius: 50px;
-}
-
+.hero__chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1rem; animation: fadeUp .6s .3s ease both; }
+.chip { background: rgba(255,255,255,.13); backdrop-filter: blur(6px); border: 1.5px solid rgba(255,255,255,.2); color: rgba(255,255,255,.9); font-size: 1.1rem; font-weight: 600; padding: .5rem 1.2rem; border-radius: 50px; backface-visibility: hidden; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
 
+/* ── MARQUEE LOGOS ───────────────────────────────── */
+.logo-ticker { background: white; padding: 1.5rem 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+.logo-ticker__track { display: flex; align-items: center; gap: 6rem; width: max-content; animation: ticker 20s linear infinite; }
+.ticker-logo { height: 45px; width: auto; object-fit: contain; opacity: 0.6; transition: opacity 0.3s ease, transform 0.3s ease; }
+.ticker-logo:hover { opacity: 1; transform: scale(1.1); }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 3rem)); } }
+
 /* ── HUB ─────────────────────────────────────────── */
-.hub { padding-block: 3rem 5rem; display: flex; flex-direction: column; gap: 1rem; }
+.hub { padding-top: 3rem; padding-bottom: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+.hub__intro { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: .5rem; }
 
-.hub__intro {
-  text-align: center; color: var(--muted); font-size: .92rem;
-  margin-bottom: .5rem;
-}
-
-/* ── HUB SECTION (acordeón) ──────────────────────── */
-.hub-section {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  transition: border-color var(--t), box-shadow var(--t);
-}
+.hub-section { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-lg); overflow: hidden; transition: border-color var(--t), box-shadow var(--t); }
 .hub-section:hover { border-color: var(--green); }
 .hub-section.open { border-color: var(--green); box-shadow: var(--shadow); }
 
-.hub-section__trigger {
-  width: 100%; background: none; border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1.25rem 1.5rem;
-  text-align: left; transition: background var(--t);
-}
+.hub-section__trigger { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.5rem; text-align: left; transition: background var(--t); }
 .hub-section__trigger:hover { background: var(--green-l); }
-
 .hub-section__left { display: flex; align-items: center; gap: 1rem; }
-
-.hub-section__num {
-  font-family: var(--ff-head); font-weight: 800; font-size: .75rem;
-  color: var(--green); letter-spacing: .06em;
-  background: var(--green-l); padding: .25rem .55rem; border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.hub-section__title {
-  display: block;
-  font-family: var(--ff-head); font-weight: 700; font-size: 1.05rem; color: var(--text);
-}
-.hub-section__hint { display: block; font-size: .82rem; color: var(--muted); margin-top: .1rem; }
-
-.hub-section__arrow {
-  color: var(--muted); flex-shrink: 0;
-  transition: transform .3s ease, color var(--t);
-}
+.hub-section__num { font-family: var(--ff-head); font-weight: 800; font-size: 1.1rem; color: var(--green); letter-spacing: .06em; background: var(--green-l); padding: .4rem .7rem; border-radius: 6px; flex-shrink: 0; }
+.hub-section__title { display: block; font-family: var(--ff-head); font-weight: 700; font-size: 1.4rem; color: var(--text); }
+.hub-section__hint { display: block; font-size: 1.05rem; color: var(--muted); margin-top: 0.3rem; }
+.hub-section__arrow { color: var(--muted); flex-shrink: 0; transition: transform .3s ease, color var(--t); }
 .hub-section.open .hub-section__arrow { transform: rotate(180deg); color: var(--green); }
 
-/* Panel */
-.hub-section__panel {
-  border-top: 1.5px solid var(--border);
-  padding: 1.75rem 1.5rem;
-  animation: panelOpen .3s ease;
-}
+.hub-section__panel { border-top: 1.5px solid var(--border); padding: 1.75rem 1.5rem; animation: panelOpen .3s ease; }
 .hub-section__panel[hidden] { display: none; }
 @keyframes panelOpen { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:none} }
 
 /* ── CARRERAS CARDS ──────────────────────────────── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(280px,100%), 1fr));
-  gap: 1.25rem;
-}
-
-.card {
-  border-radius: var(--r); border: 1.5px solid var(--border);
-  padding: 1.5rem; display: flex; flex-direction: column; gap: .9rem;
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-  background: var(--bg);
-}
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px,100%), 1fr)); gap: 1.25rem; }
+.card { border-radius: var(--r); border: 1.5px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; gap: .9rem; transition: transform var(--t), box-shadow var(--t), border-color var(--t); background: var(--bg); }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green); }
-
 .card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
-.card__icon { width: 44px; height: 44px; color: var(--green); }
-.card--info .card__icon { color: var(--purple); }
-.card--math .card__icon { color: var(--gold-d); }
+.card-icon-custom { font-size: 2.6rem; color: var(--purple); display: block; margin-bottom: 0.5rem; }
+.card__badge { font-family: var(--ff-head); font-size: 0.9rem; font-weight: 700; letter-spacing: .04em; background: var(--gold); color: #1a0a00; padding: .3rem .8rem; border-radius: 50px; white-space: nowrap; }
+.card__title { font-family: var(--ff-head); font-weight: 800; font-size: 1.4rem; color: var(--text); }
 
-.card__badge {
-  font-family: var(--ff-head); font-size: .7rem; font-weight: 700; letter-spacing: .04em;
-  background: var(--gold); color: #1a0a00; padding: .2rem .6rem; border-radius: 50px;
-  white-space: nowrap;
-}
+.career-list { display: flex; flex-direction: column; gap: 0; margin-top: 0.5rem; }
+.career-list li { padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; line-height: 1.3; }
+.career-list li:last-child { border-bottom: none; }
+.badge-new { background: var(--gold); color: #111; font-family: var(--ff-head); font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; box-shadow: 0 2px 8px rgba(249, 168, 38, 0.4); }
 
-.card__title { font-family: var(--ff-head); font-weight: 800; font-size: 1.1rem; color: var(--text); }
-.card__copy { font-size: .9rem; color: var(--muted); line-height: 1.6; }
-.card__copy strong { color: var(--text); }
+/* ── KIT INGRESANTE ──────────────────────────────── */
+.kit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr)); gap: 1.25rem; }
+.kit-card { background: var(--bg); border: 2px solid var(--purple); border-radius: var(--r-lg); padding: 1.5rem; display: flex; flex-direction: column; gap: .85rem; transition: transform var(--t), box-shadow var(--t); }
+.kit-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(74,21,75,.12); }
+.kit-card h3 { font-family: var(--ff-head); font-weight: 800; font-size: 1.4rem; color: var(--purple); }
+.kit-card p { font-size: 1.05rem; color: var(--muted); }
+.kit-list, .kit-steps { display: flex; flex-direction: column; gap: .75rem; }
+.kit-list li, .kit-steps li { display: flex; align-items: flex-start; gap: .75rem; }
+.kit-list span.material-symbols-outlined { font-size: 1.8rem; color: var(--purple); background: rgba(124, 58, 237, 0.1); padding: 0.5rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.kit-list li div, .kit-steps li div { display: flex; flex-direction: column; gap: .05rem; }
+.kit-list strong, .kit-steps strong { font-size: 1.1rem; color: var(--text); }
+.kit-list small, .kit-steps small { font-size: 0.95rem; color: var(--muted); }
+.step-num { min-width: 30px; height: 30px; border-radius: 50%; background: var(--purple); color: #fff; font-family: var(--ff-head); font-weight: 800; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-.card__tags { display: flex; flex-direction: column; gap: .3rem; font-size: .83rem; color: var(--muted); }
+/* ── RECURSOS ────────────────────────────────────── */
+.recursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%), 1fr)); gap: .85rem; }
+.recurso-card { display: flex; align-items: center; gap: 1rem; background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--r); padding: 1rem 1.1rem; transition: border-color var(--t), transform var(--t), box-shadow var(--t); cursor: pointer; }
+.recurso-card:hover { border-color: var(--green); transform: translateY(-2px); box-shadow: var(--shadow); }
+.recurso-card .material-symbols-outlined { font-size: 2rem; color: var(--purple); background: rgba(124, 58, 237, 0.1); padding: 0.5rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.recurso-card div { display: flex; flex-direction: column; gap: .1rem; flex: 1; }
+.recurso-card strong { font-size: 1.1rem; color: var(--text); }
+.recurso-card small { font-size: 0.95rem; color: var(--muted); }
+.recurso-card__arrow { color: var(--green); font-size: 1rem; font-weight: 700; flex-shrink: 0; }
 
 /* ── TEST VOCACIONAL ─────────────────────────────── */
 .test-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-
-.test-block__text h3 { font-family: var(--ff-head); font-size: 1.35rem; font-weight: 800; margin-bottom: .6rem; }
-.test-block__text p { color: var(--muted); margin-bottom: 1rem; }
-.check-list { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1.5rem; font-size: .9rem; color: var(--muted); }
-
-/* Mock test card */
-.test-card-mock {
-  background: var(--surface); border: 1.5px solid var(--border);
-  border-radius: var(--r-lg); padding: 1.5rem; box-shadow: var(--shadow);
-}
-.mock-q { font-family: var(--ff-head); font-size: .9rem; font-weight: 700; color: var(--text); display: block; margin-bottom: 1rem; }
+.test-block__text h3 { font-family: var(--ff-head); font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+.test-block__text p { color: var(--muted); margin-bottom: 1rem; font-size: 1.1rem; }
+.check-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--muted); }
+.test-card-mock { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-lg); padding: 1.5rem; box-shadow: var(--shadow); }
+.mock-q { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; color: var(--text); display: block; margin-bottom: 1rem; }
 .mock-opts { display: flex; flex-direction: column; gap: .5rem; }
-.mock-opt {
-  padding: .6rem 1rem; border-radius: var(--r);
-  border: 1.5px solid var(--border); font-size: .82rem; color: var(--muted);
-  transition: var(--t); cursor: default;
-}
+.mock-opt { padding: .8rem 1rem; border-radius: var(--r); border: 1.5px solid var(--border); font-size: 1rem; color: var(--muted); transition: var(--t); cursor: default; }
 .mock-opt--sel { border-color: var(--green); background: var(--green-l); color: var(--green); font-weight: 600; }
-
-/* ── KIT INGRESANTE ──────────────────────────────── */
-.kit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
-  gap: 1.25rem;
-}
-
-.kit-card {
-  background: var(--bg); border: 2px solid var(--purple);
-  border-radius: var(--r-lg); padding: 1.5rem;
-  display: flex; flex-direction: column; gap: .85rem;
-  transition: transform var(--t), box-shadow var(--t);
-}
-.kit-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(74,21,75,.12); }
-
-.kit-card__icon { font-size: 2.2rem; }
-.kit-card h3 { font-family: var(--ff-head); font-weight: 800; font-size: 1.1rem; color: var(--purple); }
-.kit-card p { font-size: .88rem; color: var(--muted); }
-
-.kit-list, .kit-steps { display: flex; flex-direction: column; gap: .75rem; }
-.kit-list li, .kit-steps li { display: flex; align-items: flex-start; gap: .75rem; }
-.kit-list li > span { font-size: 1.1rem; line-height: 1.5; flex-shrink: 0; }
-.kit-list li div, .kit-steps li div { display: flex; flex-direction: column; gap: .05rem; }
-.kit-list strong, .kit-steps strong { font-size: .9rem; color: var(--text); }
-.kit-list small, .kit-steps small { font-size: .8rem; color: var(--muted); }
-
-.step-num {
-  min-width: 26px; height: 26px; border-radius: 50%;
-  background: var(--purple); color: #fff;
-  font-family: var(--ff-head); font-weight: 800; font-size: .78rem;
-  display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-/* ── RECURSOS ────────────────────────────────────── */
-.recursos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px,100%), 1fr));
-  gap: .85rem;
-}
-
-.recurso-card {
-  display: flex; align-items: center; gap: 1rem;
-  background: var(--bg); border: 1.5px solid var(--border);
-  border-radius: var(--r); padding: 1rem 1.1rem;
-  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
-  cursor: pointer;
-}
-.recurso-card:hover { border-color: var(--green); transform: translateY(-2px); box-shadow: var(--shadow); }
-.recurso-card__icon { font-size: 1.6rem; flex-shrink: 0; }
-.recurso-card div { display: flex; flex-direction: column; gap: .1rem; flex: 1; }
-.recurso-card strong { font-size: .9rem; color: var(--text); }
-.recurso-card small { font-size: .78rem; color: var(--muted); }
-.recurso-card__arrow { color: var(--green); font-size: 1rem; font-weight: 700; flex-shrink: 0; }
-
-/* ── FAQ ─────────────────────────────────────────── */
-.faq-list { display: flex; flex-direction: column; gap: .5rem; }
-
-.faq-item {
-  background: var(--bg); border: 1.5px solid var(--border);
-  border-radius: var(--r); overflow: hidden;
-}
-.faq-item[open] { border-color: var(--green); }
-
-.faq-item summary {
-  padding: 1rem 1.25rem;
-  font-family: var(--ff-head); font-weight: 700; font-size: .92rem;
-  cursor: pointer; list-style: none; position: relative; padding-right: 2.5rem;
-  transition: background var(--t);
-}
-.faq-item summary:hover { background: var(--green-l); }
-.faq-item summary::after {
-  content: '+'; position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%);
-  font-size: 1.2rem; color: var(--green); font-weight: 400;
-}
-.faq-item[open] summary::after { content: '−'; }
-.faq-item p { padding: 0 1.25rem 1rem; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: .75rem; }
 
 /* ── REVEAL ──────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ── FOOTER ──────────────────────────────────────── */
-.footer { background: var(--text); color: rgba(255,255,255,.75); padding-top: 3rem; font-size: .88rem; }
-.footer__inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 2rem; padding-bottom: 2.5rem; }
-.footer__logo { height: 32px; filter: brightness(10); margin-bottom: .6rem; }
-.footer__brand p { line-height: 1.65; }
-.footer__info { display: flex; flex-direction: column; gap: .45rem; }
-.footer__fm { display: flex; flex-direction: column; gap: .6rem; }
-.footer__fm-logo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
-.footer__copy { border-top: 1px solid rgba(255,255,255,.1); padding-block: 1.1rem; font-size: .78rem; color: rgba(255,255,255,.4); }
+.footer { background: var(--text); color: rgba(255,255,255,.75); padding-top: 0.5rem; margin-top: 0; font-size: .88rem; }
+.footer__inner { display: flex; justify-content: center; align-items: center; padding-block: 0.5rem; }
+.footer__fm { display: flex; flex-direction: row; align-items: center; gap: 0.8rem; }
+.footer__fm-logo { width: 50px; height: auto; border-radius: 50%; display: block; }
+.footer__fm p { margin: 0; white-space: nowrap; font-size: 0.95rem; }
+.footer__copy { border-top: 1px solid rgba(255,255,255,.1); padding-block: 1.1rem; font-size: .78rem; color: rgba(255,255,255,.4); text-align: center; }
+.footer__copy .container { padding: 0; }
 
 /* ── CHATBOT ─────────────────────────────────────── */
 .chatbot-wrapper { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 500; display: flex; flex-direction: column; align-items: flex-end; gap: .6rem; }
-
-.chatbot-tooltip {
-  display: flex; align-items: center; gap: .5rem;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: .6rem 1rem; box-shadow: var(--shadow);
-  font-family: var(--ff-head); font-size: .85rem; font-weight: 600; white-space: nowrap;
-  animation: fadeUp .4s ease both;
-}
+.chatbot-tooltip { display: flex; align-items: center; gap: .5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: .6rem 1rem; box-shadow: var(--shadow); font-family: var(--ff-head); font-size: .85rem; font-weight: 600; white-space: nowrap; animation: fadeUp .4s ease both; }
 .chatbot-tooltip.hidden { display: none; }
 .tooltip-close { background: none; border: none; cursor: pointer; color: var(--muted); font-size: .75rem; }
 
-.chatbot-btn {
-  width: 58px; height: 58px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--green), var(--purple));
-  border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 22px rgba(0,122,83,.4);
-  transition: transform var(--t), box-shadow var(--t);
-  position: relative;
-}
+.chatbot-btn { width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--purple)); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(0,122,83,.4); transition: transform var(--t), box-shadow var(--t); position: relative; }
 .chatbot-btn:hover { transform: scale(1.08); box-shadow: 0 10px 30px rgba(0,122,83,.5); }
-
 .cb-icon { width: 24px; height: 24px; position: absolute; transition: opacity .2s, transform .25s; }
 .cb-icon--x { opacity: 0; transform: rotate(-90deg) scale(.8); }
 .chatbot-btn.active .cb-icon--chat { opacity: 0; transform: rotate(90deg) scale(.8); }
 .chatbot-btn.active .cb-icon--x { opacity: 1; transform: rotate(0) scale(1); }
 
-.chat-modal {
-  position: fixed; bottom: 6.5rem; right: 1.75rem; z-index: 499;
-  width: min(370px, calc(100vw - 2rem));
-  border-radius: var(--r-lg); overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transform: scale(.9) translateY(20px); opacity: 0; pointer-events: none;
-  transition: opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1);
-}
+.chat-modal { position: fixed; bottom: 6.5rem; right: 1.75rem; z-index: 499; width: min(370px, calc(100vw - 2rem)); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-lg); transform: scale(.9) translateY(20px); opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1); }
 .chat-modal.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
 .chat-modal__box { display: flex; flex-direction: column; height: 460px; background: var(--surface); }
 
-.chat-modal__header {
-  display: flex; align-items: center; gap: .75rem; padding: .9rem 1.1rem;
-  background: linear-gradient(90deg, var(--green-d), var(--purple)); color: #fff;
-}
+.chat-modal__header { display: flex; align-items: center; gap: .75rem; padding: .9rem 1.1rem; background: linear-gradient(90deg, var(--green-d), var(--purple)); color: #fff; }
 .chat-modal__avatar { font-size: 1.6rem; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.15); border-radius: 50%; }
 .chat-modal__name { font-family: var(--ff-head); font-weight: 700; font-size: .9rem; }
 .chat-modal__status { display: flex; align-items: center; gap: .3rem; font-size: .72rem; opacity: .8; }
@@ -377,11 +214,9 @@ ul { list-style: none; }
 .chat-modal__close:hover { background: rgba(255,255,255,.3); }
 
 .chat-modal__body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; background: #f7f9fb; scroll-behavior: smooth; }
-
 .chat-msg { display: flex; flex-direction: column; gap: .18rem; max-width: 84%; }
 .chat-msg--bot { align-self: flex-start; }
 .chat-msg--user { align-self: flex-end; }
-
 .chat-msg__bubble { padding: .65rem .95rem; border-radius: 14px; font-size: .86rem; line-height: 1.55; }
 .chat-msg--bot .chat-msg__bubble { background: #fff; border: 1px solid var(--border); border-bottom-left-radius: 4px; color: var(--text); }
 .chat-msg--user .chat-msg__bubble { background: var(--green); color: #fff; border-bottom-right-radius: 4px; }
@@ -404,385 +239,41 @@ ul { list-style: none; }
 .chat-send:hover { background: var(--green-d); transform: scale(1.05); }
 .chat-send svg { width: 16px; }
 
-/* ── RESPONSIVE ──────────────────────────────────── */
-@media (max-width: 700px) {
-  .hero { padding-block: 4rem 3rem; }
-  .hero__title { font-size: 2rem; }
-  .test-block { grid-template-columns: 1fr; }
-  .test-block__visual { display: none; }
-  .hub-section__trigger { padding: 1rem 1.1rem; }
-  .hub-section__panel { padding: 1.25rem 1rem; }
-  .header__nav .nav-link--cta { display: none; }
-  .chat-modal { right: 1rem; width: calc(100vw - 2rem); }
-  .chatbot-wrapper { right: 1rem; }
-}
-/* =========================================
-   AUMENTO DE TAMAÑO PARA PANTALLAS GRANDES 
-   (Sobrescribe los tamaños originales)
-   ========================================= */
-
-/* 1. Títulos de las barras desplegables (Ej: "01 Descubrí tu Carrera") */
-.hub-section__num { font-size: 1.1rem; padding: .4rem .7rem; }
-.hub-section__title { font-size: 1.4rem; }
-.hub-section__hint { font-size: 1.05rem; margin-top: 0.3rem; }
-
-/* 2. Tarjetas de Carreras */
-.card__title { font-size: 1.4rem; }
-.card__copy { font-size: 1.1rem; line-height: 1.6; }
-.card__badge { font-size: 0.9rem; padding: .3rem .8rem; }
-.card__tags { font-size: 1rem; gap: .5rem; }
-.card__icon { width: 55px; height: 55px; } /* Ícono más grande */
-
-/* 3. Sección Test Vocacional */
-.test-block__text h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-.test-block__text p { font-size: 1.1rem; }
-.check-list { font-size: 1.1rem; gap: .5rem; }
-.mock-q { font-size: 1.1rem; }
-.mock-opt { font-size: 1rem; padding: .8rem 1rem; }
-
-/* 4. Kit de Ingresante */
-.kit-card__icon { font-size: 2.8rem; } /* Emojis más grandes */
-.kit-card h3 { font-size: 1.4rem; }
-.kit-card p { font-size: 1.05rem; }
-.kit-list strong, .kit-steps strong { font-size: 1.1rem; }
-.kit-list small, .kit-steps small { font-size: 0.95rem; }
-.step-num { min-width: 30px; height: 30px; font-size: 0.9rem; }
-
-/* 5. Apuntes y Recursos */
-.recurso-card__icon { font-size: 2rem; }
-.recurso-card strong { font-size: 1.1rem; }
-.recurso-card small { font-size: 0.95rem; }
-
-/* 6. Preguntas Frecuentes (FAQ) */
-.faq-item summary { font-size: 1.15rem; padding: 1.2rem 1.5rem; }
-.faq-item p { font-size: 1.05rem; padding: 0 1.5rem 1.2rem; }
-/* =========================================
-   CENTRAR LA PORTADA (HERO)
-   ========================================= */
-.hero__inner {
-  align-items: center;     /* Centra el botón y los contenedores */
-  text-align: center;      /* Centra los textos */
-  margin: 0 auto;          /* Asegura que el bloque esté en el medio de la pantalla */
-}
-
-.hero__chips {
-  justify-content: center; /* Centra las etiquetas pequeñas de abajo (3 carreras, gratuita, etc.) */
-}
-
-/* =========================================
-   CINTA DE LOGOS ANIMADA (MARQUEE)
-   ========================================= */
-.logo-ticker {
-  background: white; /* Fondo blanco para que resalten los logos */
-  padding: 1.5rem 0;
-  overflow: hidden; /* Oculta lo que se sale de la pantalla */
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  width: 100vw; /* Ocupa el 100% del ancho de la pantalla */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
-.logo-ticker__track {
-  display: flex;
-  align-items: center;
-  gap: 6rem; /* Espacio entre cada logo */
-  width: max-content;
-  /* La animación dura 20 segundos y es lineal para que no frene */
-  animation: ticker 20s linear infinite; 
-}
-
-.ticker-logo {
-  height: 45px; /* Tamaño de los logos */
-  width: auto;
-  object-fit: contain;
-  opacity: 0.6; /* Un poco transparentes para que sea sutil */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Al pasar el mouse por arriba, se pintan al 100% y se agrandan un poquito */
-.ticker-logo:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* El motor de la animación */
-@keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Se mueve exactamente la mitad para que el bucle sea perfecto */
-    transform: translateX(calc(-50% - 3rem)); 
-  }
-}
-/* =========================================
-   AJUSTE DE LA ETIQUETA "EXPO CARRERAS 2026"
-   ========================================= */
-
-/* 1. Movemos el contenedor hacia arriba */
-.hero__meta {
-  transform: translateY(-20px); /* El valor negativo lo empuja hacia arriba */
-  margin-bottom: 1.5rem;        /* Le da más aire de separación con el título principal */
-}
-
-/* 2. Agrandamos específicamente el "chip" que está ahí adentro */
-.hero__meta .chip {
-  font-size: 1.1rem;      /* Letra más grande (el original era 0.78rem) */
-  padding: 0.6rem 1.4rem; /* Hace la "pastilla" más ancha y alta */
-  font-weight: 700;       /* Hace la letra más gruesa para que resalte */
-  letter-spacing: 0.05em; /* Separa apenas las letras para mejorar la lectura */
-  border-width: 2px;      /* Hace el borde un poquito más grueso */
-}
-/* =========================================
-   AGRANDAR ETIQUETAS INFERIORES DEL HERO (+20 Carreras, etc.)
-   ========================================= */
-
-.hero__chips {
-  margin-top: 1rem; /* Le da un poquito más de aire de separación con el botón principal */
-}
-
-/* Apuntamos directamente a las etiquetas que están abajo del botón */
-.hero__chips .chip {
-  font-size: 1.1rem;      /* Aumenta el tamaño de la letra (antes era 0.78rem) */
-  padding: 0.5rem 1.2rem; /* Hace que la pastilla sea más alta y ancha */
-  font-weight: 600;       /* Hace la letra un poco más gruesa */
-  border-width: 1.5px;    /* Define un poquito más el borde blanco */
-}
-/* =========================================
-   MEJORAR LA NITIDEZ DEL TEXTO (FORZAR HD)
-   ========================================= */
-
-/* 1. Suavizado de fuentes para todo el sitio */
-body, * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* 2. Evitar que las transformaciones y botones se vean borrosos */
-.chip, .hero__meta, .btn, .hero__title, .hero__sub {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  perspective: 1000px;
-}
-/* =========================================
-   ESTILOS PARA EL CATÁLOGO COMPLETO DE CARRERAS
-   ========================================= */
-
-.career-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 0.5rem;
-}
-
-/* Diseño de cada renglón de carrera */
-.career-list li {
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 1.05rem;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  line-height: 1.3;
-}
-
-/* Le sacamos la línea divisoria a la última carrera de la lista */
-.career-list li:last-child {
-  border-bottom: none;
-}
-
-/* Etiqueta dorada de impacto para las carreras NUEVAS */
-.badge-new {
-  background: var(--gold);
-  color: #111;
-  font-family: var(--ff-head);
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 0.2rem 0.6rem;
-  border-radius: 50px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(249, 168, 38, 0.4);
-}
-/* =========================================
-   📱 OPTIMIZACIÓN RESPONSIVE (CELULARES)
-   ========================================= */
-
+/* ── RESPONSIVE (MÓVILES) ────────────────────────── */
 @media (max-width: 768px) {
-  
-  /* 1. Ajustes del Encabezado */
+  /* Header & Hero */
   .header__inner { padding-block: 0.6rem; }
   .header__logo { height: 32px; }
-  
-  /* 2. Ajustes de la Portada (Hero) */
+  .header__nav .nav-link--cta { display: none; }
   .hero { padding-block: 3.5rem 2.5rem; }
   .hero__title { font-size: 2.2rem; line-height: 1.15; }
   .hero__meta { margin-bottom: 1rem; transform: translateY(0); }
   .hero__meta .chip { font-size: 0.85rem; padding: 0.4rem 1rem; }
   .hero__chips .chip { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
   
-  /* 3. Botones "Amigables para el Pulgar" (Ocupan todo el ancho) */
-  .btn { 
-    width: 100%; 
-    justify-content: center; 
-    text-align: center; 
-    font-size: 0.95rem;
-    padding: 0.8rem 1rem;
-  }
-
-  /* 4. Cinta de Logos Animada (Más chica y junta) */
+  /* Botones y Animaciones */
+  .btn { width: 100%; justify-content: center; font-size: 0.95rem; padding: 0.8rem 1rem; }
   .logo-ticker__track { gap: 3rem; animation-duration: 15s; }
   .ticker-logo { height: 35px; }
-
-  /* 5. Achicamos las letras gigantes que pusimos para el monitor */
+  
+  /* Hub & Tarjetas */
   body { font-size: 100%; }
   .hub-section__title { font-size: 1.15rem; }
-  .card__title, .kit-card h3 { font-size: 1.2rem; }
-  .card__icon, .kit-card__icon { font-size: 2rem; width: 45px; height: 45px; }
-  
-  /* 6. Listas de Carreras y Tarjetas */
+  .hub-section__trigger { padding: 1rem 1.1rem; }
+  .hub-section__panel { padding: 1.25rem 1rem; }
   .card, .kit-card { padding: 1.1rem; }
-  .career-list li { 
-    font-size: 0.95rem; 
-    flex-wrap: wrap; /* Si el nombre es muy largo, la etiqueta dorada baja de renglón y no rompe la pantalla */
-  }
+  .card__title, .kit-card h3 { font-size: 1.2rem; }
+  .card-icon-custom { font-size: 2rem; width: auto; height: auto; }
+  .career-list li { font-size: 0.95rem; flex-wrap: wrap; }
   .badge-new { font-size: 0.65rem; }
-
-  /* 7. Ajuste del Chatbot IA para que no se salga de la pantalla */
+  .test-block { grid-template-columns: 1fr; }
+  .test-block__visual { display: none; }
+  
+  /* Footer */
+  .footer__fm p { font-size: 0.85rem; }
+  .footer__fm-logo { width: 40px; }
+  
+  /* Chatbot */
   .chatbot-wrapper { right: 1rem; bottom: 1rem; }
-  .chat-modal { 
-    right: 1rem; 
-    left: 1rem; 
-    width: auto; /* Ocupa el ancho del celu restando 1rem de cada lado */
-    bottom: 5rem; 
-  }
-}
-/* =========================================
-   ESTILOS DEL FOOTER CENTRADO Y COMPACTO
-   ========================================= */
-
-/* 1. Contenedor principal: Centra todo y reduce el espacio vacío superior */
-.footer__inner {
-  display: flex !important;
-  justify-content: center !important; /* Mueve todo al centro exacto de la pantalla */
-  padding-top: 1rem !important;       /* Achica el espacio vacío de arriba */
-  padding-bottom: 1rem !important;    /* Achica el espacio vacío de abajo */
-}
-
-/* 2. Bloque Franja Morada: Logo y texto lado a lado */
-.footer__fm {
-  display: flex !important;
-  flex-direction: row !important; 
-  align-items: center !important; 
-  gap: 0.8rem !important; /* Un espacio sutil entre el logo y el texto */
-}
-
-/* 3. Aseguramos que el texto quede en UNA sola línea */
-.footer__fm p {
-  margin: 0 !important;
-  white-space: nowrap !important; /* Esto prohíbe que el texto baje al segundo renglón */
-  font-size: 0.95rem;
-}
-
-/* 4. Ajuste del logo */
-.footer__fm-logo {
-  width: 50px; 
-  height: auto;
-  border-radius: 50%;
-  display: block;
-}
-
-/* 5. Centramos el texto inferior (EXPO CARRERAS 2026) */
-.footer__copy .container {
-  text-align: center !important; /* Asegura que vuelva a estar en el centro */
-  padding: 0 !important;
-}
-
-/* =========================================
-   ESTILOS DE ÍCONOS VECTORIALES (MATERIAL)
-   ========================================= */
-
-/* Ajuste general de la línea del ícono */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-}
-
-/* 1. Íconos gigantes de las tarjetas de Carreras */
-.card-icon-custom {
-  font-size: 2.6rem;
-  color: var(--purple, #7c3aed); /* Usa tu variable morada, o un violeta moderno por defecto */
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* 2. Íconos de las listas de Becas y Recursos */
-.kit-list span.material-symbols-outlined,
-.recurso-card .material-symbols-outlined {
-  font-size: 1.8rem;
-  color: var(--purple, #7c3aed); 
-  background: rgba(124, 58, 237, 0.1); /* Fondo sutil semitransparente */
-  padding: 0.5rem;
-  border-radius: 8px; /* Cuadradito con bordes redondeados */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* =========================================
-   ELIMINAR ESPACIO VACÍO ARRIBA DEL FOOTER
-   ========================================= */
-
-/* 1. Le sacamos el margen a la caja principal del footer */
-.footer {
-  margin-top: 0 !important; 
-  padding-top: 0.5rem !important; /* Un espacio mínimo para que no se pegue del todo */
-}
-
-/* 2. Achicamos el relleno del contenedor interno */
-.footer__inner {
-  padding-top: 0.5rem !important; 
-  padding-bottom: 0.5rem !important;
-}
-
-/* 3. Por las dudas, le sacamos el margen inferior a la última sección de la página */
-#hub {
-  padding-bottom: 1rem !important;
-  margin-bottom: 0 !important;
-}
-/* =========================================
-   FOOTER IDÉNTICO EN CELULARES Y PC
-   ========================================= */
-
-@media (max-width: 768px) {
-  /* Forzamos a que se mantengan en fila y centrados */
-  .footer__inner, 
-  .footer__fm {
-    display: flex !important;
-    flex-direction: row !important; /* Obliga a que estén uno al lado del otro */
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 0.5rem !important; /* Espacio un poco más chico entre logo y texto */
-  }
-
-  /* Evitamos que el texto baje de renglón y lo ajustamos a la pantalla */
-  .footer__fm p {
-    white-space: nowrap !important; 
-    font-size: 0.85rem !important; /* Letra apenas más chica para que entre entera */
-    margin: 0 !important;
-  }
-
-  /* Ajustamos un poco el logo para que acompañe el texto en móviles */
-  .footer__fm-logo {
-    width: 40px !important; 
-    height: auto !important;
-  }
+  .chat-modal { right: 1rem; left: 1rem; width: auto; bottom: 5rem; }
 }
