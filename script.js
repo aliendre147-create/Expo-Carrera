@@ -58,8 +58,8 @@ hubSections.forEach(section => {
 });
 
 // Abrir sección "Carreras" por defecto
-const firstSection = document.querySelector('.hub-section');
-if (firstSection) firstSection.querySelector('.hub-section__trigger')?.click();
+// const firstSection = document.querySelector('.hub-section');
+// if (firstSection) firstSection.querySelector('.hub-section__trigger')?.click();
 
 // ── CHATBOT ──────────────────────────────────────
 const chatbotBtn  = document.getElementById('chatbot-btn');
